@@ -81,32 +81,23 @@
       <p>Только избранные Вами товары</p>
     </div>
     <div class="row mx-auto container-fluid">
+
+    <?php include('server/get_featured_products.php') ?>
+
+    <?php 
+    while ($row = $featured_products->fetch_assoc()) {
+    ?>
       <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/10.png.webp" alt="" />
-        <h5 class="p-name">Зимний лёд</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
+        <img class="img-fluid mb-3" src="assets/img/<?php echo $row['product_image'] ?>" alt="" />
+        <h5 class="p-name"><?php echo $row['product_name'] ?></h5>
+        <h4 class="p-price"><?php echo $row['product_price'] ?> ₽</h4>
         <button class="buy-btn">Купить</button>
       </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/13.png.webp" alt="" />
-        <h5 class="p-name">Весеннее цветение</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/16.png.webp" alt="" />
-        <h5 class="p-name">Осенний призыв</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/19.jpg.webp" alt="" />
-        <h5 class="p-name">Просто футболка</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
+      
+      <?php } ?>
     </div>
   </section>
+
 
   <!-- banner -->
   <section id="banner" class="my-5 py-5">
