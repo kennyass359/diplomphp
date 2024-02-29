@@ -1,54 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>invvi - Органическая одежда</title>
-  <link rel="shortcut icon" href="./assets/img/Group 1.svg" />
+session_start();
+if(!isset($_SESSION['logged_in'])){
+  header('location: login.php');
+  exit;
+}
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+if(isset($_GET['logout'])){
+  if(isset($_SESSION['logged_in'])){
+    unset($_SESSION['logged_in']);
+    unset($_SESSION['user_email']);
+    unset($_SESSION['user_name']);
+    header('location: login.php');
+    exit; 
+  }
+}
 
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary py-4 fixed-top">
-    <div class="container">
-      <a href="./index.php"><img src="./assets/img/Group 1.svg" alt="" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="./shop.html">Каталог</a>
-          </li>
+?>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Бренд</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="./contact.html">Контакты </a>
-          </li>
 
-          <li class="nav-item">
-            <a href="./cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="./account.html"><i class="fa-solid fa-user"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+<?php include ("header.php")?>
+
+
 
 
   <!-- Account -->
@@ -58,10 +33,10 @@
         <h3 class="font-weight-bold">Аккаунт</h3>
         <hr class="mx-auto">
         <div class="account-info">
-          <p>Имя: <span>Михаил</span></p>
-          <p>Email: <span>michael09102004@gmail.com</span></p>
-          <p><a href="" id="orders-btn">Ваши заказы</a></p>
-          <p><a href="" id="logout-btn">Выйти</a></p>
+          <p>Имя: <span><?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}?></span></p>
+          <p>Email: <span><?php if(isset($_SESSION['user_email'])){echo $_SESSION['user_email'];}?></span></p>
+          <p><a href="#orders" id="orders-btn">Ваши заказы</a></p>
+          <p><a href="account.php?logout=1" id="logout-btn">Выйти</a></p>
         </div>
       </div>
 
@@ -86,7 +61,7 @@
   </section>
 
   <!-- orders -->
-  <section class="orders container my-2 py-3">
+  <section id="orders" class="orders container my-2 py-3">
     <div class="container mt-2">
       <h2 class="font-weight-bolde text-center">Заказы</h2>
       <hr class="mx-auto">

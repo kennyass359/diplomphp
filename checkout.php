@@ -1,66 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>invvi - Органическая одежда</title>
-    <link rel="shortcut icon" href="./assets/img/Group 1.svg" />
+session_start();
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+if (!empty($_SESSION['cart']) && isset($_POST['checkout'])){
 
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary py-4 fixed-top">
-    <div class="container">
-      <a href="./index.php"><img src="./assets/img/Group 1.svg" alt="" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="./shop.html">Каталог</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Бренд</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="./contact.html">Контакты </a>
-          </li>
+}else{
+    header('location:index.php');
+}
 
-          <li class="nav-item">
-            <a href="./cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="./account.html"><i class="fa-solid fa-user"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+?>
+
+
+
+
+
+
+<?php include ("header.php")?>
+
 
     <!-- checkout -->
     <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">Оплата</h2>
+            <h2 class="form-weight-bold">Введите данные</h2>
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
-            <form id="checkout-form" action="">
+            <form id="checkout-form" method="POST" action="server/place_order.php">
                 <div class="form-group checkout-small-element">
                     <label for="">Имя</label>
-                    <input type="email" class="form-control" name="name" id="checkout-name" required>
+                    <input type="text" class="form-control" name="name" id="checkout-name" required>
                 </div>
                 <div class="form-group mt-3 checkout-small-element">
                     <label for="">Электронная почта</label>
@@ -79,7 +49,8 @@
                     <input type="text" class="form-control" name="address" id="checkout-address" required>
                 </div>
                 <div class="form-group mt-3 checkout-btn-container">
-                    <input type="submit" class="btn" id="checkout-btn" value="Оплата">
+                    <p>Общая сумма: ₽ <?php echo $_SESSION['total']; ?></p>
+                    <input type="submit" name="place_order" class="btn" id="checkout-btn" value="Оформить заказ">
                 </div>
             </form>
         </div>

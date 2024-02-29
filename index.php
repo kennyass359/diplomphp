@@ -1,54 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include ("header.php")?>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>invvi - Органическая одежда</title>
-  <link rel="shortcut icon" href="./assets/img/Group 1.svg" />
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
-
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary py-4 fixed-top">
-    <div class="container">
-      <a href="./index.php"><img src="./assets/img/Group 1.svg" alt="" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="./shop.html">Каталог</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Бренд</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="./contact.html">Контакты </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="./cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="./account.html"><i class="fa-solid fa-user"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <!-- home -->
   <section id="home">
@@ -88,10 +39,11 @@
     while ($row = $featured_products->fetch_assoc()) {
     ?>
       <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+      <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?>">
         <img class="img-fluid mb-3" src="assets/img/<?php echo $row['product_image'] ?>" alt="" />
         <h5 class="p-name"><?php echo $row['product_name'] ?></h5>
         <h4 class="p-price"><?php echo $row['product_price'] ?> ₽</h4>
-        <button class="buy-btn">Купить</button>
+        <button class="buy-btn">Купить</button></a>
       </div>
       
       <?php } ?>
@@ -116,30 +68,17 @@
       <p>Хлопок, чистота, комфорт</p>
     </div>
     <div class="row mx-auto container-fluid">
+    <?php include('server/get_hoodies.php') ?>
+
+      <?php while ($row=$hoodies_products->fetch_assoc()) { ?>
       <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/clothes1.webp" alt="" />
-        <h5 class="p-name">Зимний лёд</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
+        <img class="img-fluid mb-3" src="./assets/img/<?php echo $row['product_image'];?>" alt="" />
+        <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+        <h4 class="p-price"><?php echo $row['product_price']; ?> ₽</h4>
         <button class="buy-btn">Купить</button>
       </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/clothes2.webp" alt="" />
-        <h5 class="p-name">Весеннее цветение</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/clothes3.webp" alt="" />
-        <h5 class="p-name">Осенний призыв</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/clothes4.jpg" alt="" />
-        <h5 class="p-name">Просто футболка</h5>
-        <h4 class="p-price">40000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
+      
+      <?php } ?>
     </div>
   </section> 
 

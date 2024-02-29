@@ -57,6 +57,11 @@ button:hover {
   color: #18db0b;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 @media only screen and (max-width: 990px) {
   .nav-buttons {
     margin: 10px;
@@ -301,13 +306,19 @@ footer .copyright img {
 .cart .remove-btn {
   color: #18db0b;
   text-decoration: none;
-  font-size: medium;
+  font-size: 14px;
+  background-color: #fff;
+  border: none;
+  width: 100px;
 }
 
 .cart .edit-btn {
   color: #18db0b;
   text-decoration: none;
-  font-size: medium;
+  font-size: 14px;
+  background-color: #fff;
+  border: none;
+  width: 100px;
 }
 
 .cart .product-info p {
