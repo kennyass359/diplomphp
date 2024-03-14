@@ -34,15 +34,15 @@ if($stmt->execute()){
     $_SESSION['logged_in'] = true;
 
 
-    header('location: account.php?message=авторизация прошла успешно');
+    header('location: account.php?login_success=Авторизация прошла успешно');
 
   }else{
-    header('location: login.php?message=не нашли ваш аккаунт');
+    header('location: login.php?message=Не нашли ваш аккаунт');
   }
 
 }else{
 
-  header('location: login.php?error=что-то пошло не так');
+  header('location: login.php?error=Что-то пошло не так');
 
 }
 

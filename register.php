@@ -36,10 +36,12 @@ if (isset($_POST['register'])) {
 
       $stmt->bind_param('sss', $name, $email, $password);
       if ($stmt->execute()) {
+        $user_id = $stmt->insert_id;
+        $_SESSION['user_id'] = $user_id;
         $_SESSION['user_email'] = $email;
         $_SESSION['user_name'] = $name;
         $_SESSION['logged_in'] = true;
-        header('location: account.php?register=Вы успешно зарегистрировались');
+        header('location: account.php?register_success=Вы успешно зарегистрировались');
       } else {
         header('location: register.php?error=При создании аккаунта произошла ошибка');
 

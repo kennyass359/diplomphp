@@ -70,20 +70,23 @@
     <div class="row mx-auto container-fluid">
     <?php include('server/get_hoodies.php') ?>
 
-      <?php while ($row=$hoodies_products->fetch_assoc()) { ?>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/<?php echo $row['product_image'];?>" alt="" />
-        <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
-        <h4 class="p-price"><?php echo $row['product_price']; ?> ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      
-      <?php } ?>
+<?php 
+while ($row = $hoodies_products->fetch_assoc()) {
+?>
+  <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+  <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?>">
+    <img class="img-fluid mb-3" src="assets/img/<?php echo $row['product_image'] ?>" alt="" />
+    <h5 class="p-name"><?php echo $row['product_name'] ?></h5>
+    <h4 class="p-price"><?php echo $row['product_price'] ?> ₽</h4>
+    <button class="buy-btn">Купить</button></a>
+  </div>
+  
+  <?php } ?>
     </div>
   </section> 
 
-  <!-- shoes -->
-  <section id="featured" class="my-5 ">
+  
+  <!-- <section id="featured" class="my-5 ">
     <div class="container text-center mt-5">
       <h3>Брюки и джинсы</h3>
       <hr class="mx-auto"/>
@@ -117,7 +120,6 @@
     </div>
   </section> 
 
-  <!-- accesories -->
   <section id="featured" class="my-5 ">
     <div class="container text-center mt-5">
       <h3>Аксессуары</h3>
@@ -150,7 +152,7 @@
         <button class="buy-btn">Купить</button>
       </div>
     </div>
-  </section> 
+  </section>  -->
 
   <!-- footer -->
   <footer class="mt-5 py-5">

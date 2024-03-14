@@ -460,6 +460,12 @@ a > i {
   margin-right: 10px;
 }
 
+.orders .order-details-btn {
+  color: #fff;
+  background-color: #18db0b;
+
+}
+
 #checkout-form .checkout-small-element {
   display: inline-block;
   width: 48%;
