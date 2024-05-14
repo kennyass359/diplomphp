@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header('location:login.php');
+    exit();
+}
+
 if (!empty($_SESSION['cart']) && isset($_POST['checkout'])){
 
 
