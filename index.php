@@ -164,12 +164,10 @@ while ($row = $hoodies_products->fetch_assoc()) {
       <div class="footer-one col-lg-3 col-md-6 col-sm-12">
         <h5 class="pb-2">Наш выбор</h5>
         <ul class="text-uppercase">
-          <li><a href="#">Мужское</a></li>
-          <li><a href="#">Женское</a></li>
-          <li><a href="#">Аксессуары</a></li>
-          <li><a href="#">О нас</a></li>
-          <li><a href="#">Информация</a></li>
-          <li><a href="#">Доставка</a></li>
+          <li><a href="./shop.php">Мужское</a></li>
+          <li><a href="./shop.php">Женское</a></li>
+          <li><a href="./shop.php">Аксессуары</a></li>
+          <li><a href="./contact.php">О нас</a></li>
         </ul>
       </div>
     
