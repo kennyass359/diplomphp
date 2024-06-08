@@ -7,7 +7,7 @@
       <h4>На всю жизнь</h4>
       <h1><span>Органическая</span> вечность</h1>
       <p>Качество навсегда</p>
-      <button>Смотреть</button>
+      <button id="scrollButton">Смотреть</button>
     </div>
   </section>
   <br />
@@ -56,7 +56,6 @@
     <div class="container">
       <h4>Зимнее время</h4>
       <h1>Чтобы было тепло</h1>
-      <button class="text-uppercase">Смотреть</button>
     </div>
   </section>
 
@@ -85,74 +84,6 @@ while ($row = $hoodies_products->fetch_assoc()) {
     </div>
   </section> 
 
-  
-  <!-- <section id="featured" class="my-5 ">
-    <div class="container text-center mt-5">
-      <h3>Брюки и джинсы</h3>
-      <hr class="mx-auto"/>
-      <p>Вечность, деним, постоянство</p>
-    </div>
-    <div class="row mx-auto container-fluid">
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/jeans1.webp" alt="" />
-        <h5 class="p-name">Зимний лёд</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/jeans2.webp" alt="" />
-        <h5 class="p-name">Весеннее цветение</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/jeans3.webp" alt="" />
-        <h5 class="p-name">Осенний призыв</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/jeans4.webp" alt="" />
-        <h5 class="p-name">Просто футболка</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-    </div>
-  </section> 
-
-  <section id="featured" class="my-5 ">
-    <div class="container text-center mt-5">
-      <h3>Аксессуары</h3>
-      <hr class="mx-auto"/>
-      <p>Простота, спокойствие, непринуждённость</p>
-    </div>
-    <div class="row mx-auto container-fluid">
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/acc1.webp" alt="" />
-        <h5 class="p-name">Зимний лёд</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/acc2.webp" alt="" />
-        <h5 class="p-name">Весеннее цветение</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/acc3.webp" alt="" />
-        <h5 class="p-name">Осенний призыв</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-        <img class="img-fluid mb-3" src="./assets/img/acc4.webp" alt="" />
-        <h5 class="p-name">Просто футболка</h5>
-        <h4 class="p-price">4000.00 ₽</h4>
-        <button class="buy-btn">Купить</button>
-      </div>
-    </div>
-  </section>  -->
 
   <!-- footer -->
   <footer class="mt-5 py-5">
@@ -195,6 +126,11 @@ while ($row = $hoodies_products->fetch_assoc()) {
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/34a4f1a444.js" crossorigin="anonymous"></script>
+  <script>
+        document.getElementById('scrollButton').addEventListener('click', function() {
+            document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 
 </html>
