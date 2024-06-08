@@ -8,9 +8,9 @@ $password = 'admin';
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($_POST['login'] == $login && $_POST['password'] == $password){
         $_SESSION['logged_in'] = true;
-        header("Location: admin.php"); // redirecting to the same page
+        header("Location: admin.php");
     } else {
-        echo "Invalid login or password";
+        echo "Неверные данные для входа";
     }
 }
 else {
@@ -43,7 +43,7 @@ else {
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="d-grid">
-                                <input type="submit" value="Submit" class="btn btn-primary">
+                                <input type="submit" value="Войти" class="btn btn-primary">
                             </div>
                         </form>
                     </div>
